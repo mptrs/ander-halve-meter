@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link
+      href="https://fonts.googleapis.com/css?family=Montserrat:500,600,700&display=swap"
+      rel="stylesheet"
+    />
+    <title>Dit is anderhalve meter</title>
+    <style>
+      body {
+        background-color: #f1f4ff;
+        font-family: "Montserrat", sans-serif;
+        color: #010036;
+      }
+      header {
+        text-align: center;
+        margin-bottom: 64px;
+      }
+      footer {
+        text-align: center;
+        padding: 32px 0;
+      }
+      h1 {
+        font-size: 42px;
+        margin-bottom: 10px;
+      }
+      h2 {
+        font-size: 24px;
+        margin-top: 0;
+        color: #ff6c6c;
+      }
+
+      .content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+      figure {
+        max-width: 100vw;
+        padding: 0;
+        margin: 0;
+      }
+
+      img {
+        width: 100%;
+      }
+
+      .btn {
+        cursor: pointer;
+        align-items: center;
+        height: 48px;
+        display: inline-flex;
+        justify-content: center;
+        color: #010036;
+        font-weight: bold;
+        text-align: center;
+        user-select: none;
+        background-color: transparent;
+        border: 3px solid transparent;
+        padding: 0 2rem;
+        border-radius: 4px;
+        transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+          border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+        text-transform: none;
+        align-items: center;
+        text-decoration: none;
+        background-color: #fed633;
+        border-color: #010036;
+      }
+
+      .btn:hover {
+        background-color: #010036;
+        color: #fff;
+      }
+      @media (min-width: 426px) {
+        h1 {
+          font-size: 3.8125rem;
+        }
+        h2 {
+          font-size: 2.4375rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Ander-halve-meter.</h1>
+      <h2>Wij helpen je graag beter inschatten</h2>
+      <a href="" class="btn" id="refreshBtn"
+        >&#x1F4D8; Ververs lesmateriaal &#x1F4D5;</a
+      >
+    </header>
+    <main>
+      <section class="content">
+        <figure>
+          <img id="img" src="" />
+        </figure>
+      </section>
+    </main>
+    <footer>&#x1F496; <a href="https://denieuwegevers.nl" target="_blank">DNG</a></footer>
+    <script type="text/javascript">
+      const imgArray = [
+        "./img/smart.png",
+        "./img/karpers.png",
+        "./img/van-velzen.png"
+      ];
+      const btn = document.getElementById("refreshBtn");
+      const img = document.getElementById("img");
+      const i = Math.floor(Math.random() * imgArray.length);
+
+      if (btn && img) {
+        img.src = imgArray[i];
+        btn.addEventListener("click", e => {
+          e.preventDefault();
+          img.src = imgArray[Math.floor(Math.random() * imgArray.length)];
+        });
+      }
+    </script>
+  </body>
+</html>
