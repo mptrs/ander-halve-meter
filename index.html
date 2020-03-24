@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
     <link
       href="https://fonts.googleapis.com/css?family=Montserrat:500,600,700&display=swap"
       rel="stylesheet"
@@ -103,7 +103,9 @@
       </section>
     </main>
     <footer>
-      Binnen 1 uur met &#x1F49B; gemaakt door <a href="https://denieuwegevers.nl" target="_blank">De Nieuwe Gevers</a></footer>
+      Binnen 1 uur met &#x1F49B; gemaakt door
+      <a href="https://denieuwegevers.nl" target="_blank">De Nieuwe Gevers</a>
+    </footer>
     <script type="text/javascript">
       const imgArray = [
         "./img/smart.png",
@@ -112,13 +114,18 @@
       ];
       const btn = document.getElementById("refreshBtn");
       const img = document.getElementById("img");
-      const i = Math.floor(Math.random() * imgArray.length);
+      let i = Math.floor(Math.random() * imgArray.length);
+      let ni = i;
 
       if (btn && img) {
         img.src = imgArray[i];
         btn.addEventListener("click", e => {
           e.preventDefault();
-          img.src = imgArray[Math.floor(Math.random() * imgArray.length)];
+          do {
+            ni = Math.floor(Math.random() * imgArray.length);
+          } while (i === ni);
+          i = ni;
+          img.src = imgArray[i];
         });
       }
     </script>
