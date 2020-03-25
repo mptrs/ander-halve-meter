@@ -103,38 +103,46 @@
       </section>
     </main>
     <footer>
-      Met &#x1F49B; <a href="https://denieuwegevers.nl" target="_blank">De Nieuwe Gevers</a>
+      Met &#x1F49B;
+      <a href="https://denieuwegevers.nl" target="_blank">De Nieuwe Gevers</a>
     </footer>
     <script type="text/javascript">
-      const imgArray = [
-        "./img/smart.png",
-        "./img/karpers.png",
-        "./img/van-velzen.png",
-        "./img/niet-goed.jpg",
-        "./img/rollen.jpeg",
-        "./img/leeg.jpeg",
-        "./img/bed.png",
-        "./img/bank.png",
-        "./img/slurf.png",
-        "./img/jazuzzi.png",
-        "./img/vinvis.jpeg",
-        "./img/fiets.jpeg",
-      ];
+      let imgArray = newImgArray();
       const btn = document.getElementById("refreshBtn");
       const img = document.getElementById("img");
-      let i = Math.floor(Math.random() * imgArray.length);
-      let ni = i;
 
       if (btn && img) {
-        img.src = imgArray[i];
+        setImg();
         btn.addEventListener("click", e => {
           e.preventDefault();
-          do {
-            ni = Math.floor(Math.random() * imgArray.length);
-          } while (i === ni);
-          i = ni;
-          img.src = imgArray[i];
+          setImg();
         });
+      }
+
+      function setImg() {
+        if(imgArray.length === 0) imgArray = newImgArray();
+          const n = Math.floor(Math.random() * imgArray.length);
+          img.src = imgArray[n];
+          if (n > -1) {
+            imgArray.splice(n, 1);
+          }
+      }
+
+      function newImgArray() {
+        return [
+          "./img/smart.png",
+          "./img/karpers.png",
+          "./img/van-velzen.png",
+          "./img/niet-goed.jpg",
+          "./img/rollen.jpeg",
+          "./img/leeg.jpeg",
+          "./img/bed.png",
+          "./img/bank.png",
+          "./img/slurf.png",
+          "./img/jazuzzi.png",
+          "./img/vinvis.jpeg",
+          "./img/fiets.jpeg"
+        ];
       }
     </script>
   </body>
